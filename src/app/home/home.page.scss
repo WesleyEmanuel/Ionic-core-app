@@ -1,0 +1,44 @@
+.ion-tabs {
+    .ion-tab-bar {
+      contain: none;
+      background-color: #000;
+      padding-top: 5px;
+      padding-bottom: 10px;
+      border-radius: 10px 10px 0 0;
+
+        .ion-tab {
+            background-color: transparent;
+            color: #fff;
+    
+            .icon {
+                height: 100%;
+                padding: 0 15%;
+                font-size: 28px;
+            }
+
+            .tab-label{
+                font-size: 12px;
+                margin: 0;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.active {
+    display: none;
+}
+
+.inactive {
+    display: unset;
+}
+
+.tab-selected {
+    .active {
+      display: unset;
+    }
+    .inactive {
+      display: none;
+    }
+}
+  

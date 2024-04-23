@@ -1,0 +1,7 @@
+{
+  "name": "new-bank-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
