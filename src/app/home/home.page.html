@@ -1,29 +1,36 @@
 <ion-content [fullscreen]="true">
-  <ion-tabs class="ion-tabs">
-    <ion-tab-bar slot="bottom" class="ion-tab-bar">
-      <ion-tab-button tab="tab1" class="ion-tab">
-        <ion-icon name="home" class="icon active"></ion-icon>
-        <ion-icon name="home-outline" class="icon inactive"></ion-icon>
-        <p class="tab-label">Home</p>
+  <ion-tabs class="tabs-with-fab">
+    <ion-tab-bar slot="bottom" class="custom-tab-bar">
+      <ion-tab-button tab="closet">
+        <ion-icon src="assets/svg/closet-menu-icon.svg" class="icon"></ion-icon>
+        <p class="tab-label">Closet</p>
+      </ion-tab-button>
+
+      <ion-tab-button tab="comunidade">
+        <ion-icon src="assets/svg/community-menu-icon.svg" class="icon"></ion-icon>
+        <p class="tab-label">Comunidade</p>
+      </ion-tab-button>
+
+      <ion-tab-button tab="solicitacoes-estilista" *ngIf="isStylist">
+        <ion-icon src="assets/svg/stylist-menu-icon.svg" class="icon"></ion-icon>
+        <p class="tab-label">Solicitações</p>
       </ion-tab-button>
       
-      <ion-tab-button tab="tab2" class="ion-tab">
-        <ion-icon name="cash" class="icon active"></ion-icon>
-        <ion-icon name="cash-outline" class="icon inactive"></ion-icon>
-        <p class="tab-label">Aporte</p>
+      <ion-tab-button tab="estilistas" *ngIf="!isStylist">
+        <ion-icon src="assets/svg/stylist-menu-icon.svg" class="icon"></ion-icon>
+        <p class="tab-label">Estilistas</p>
       </ion-tab-button>
-      
-      <ion-tab-button tab="tab3" class="ion-tab">
-        <ion-icon name="podium" class="icon active"></ion-icon>
-        <ion-icon name="podium-outline" class="icon inactive"></ion-icon>
-        <p class="tab-label">Extrato</p>
-      </ion-tab-button>
-      
-      <ion-tab-button tab="tab4" class="ion-tab">
-        <ion-icon name="person" class="icon active"></ion-icon>
-        <ion-icon name="person-outline" class="icon inactive"></ion-icon>
-        <p class="tab-label">Perfil</p>
+
+      <ion-tab-button tab="menu">
+        <ion-icon name="menu" class="icon"></ion-icon>
+        <p class="tab-label">Menu</p>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
+
+  <ion-fab vertical="bottom" horizontal="center" class="center-fab">
+    <ion-fab-button (click)="onPlusClick()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

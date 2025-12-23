@@ -1,0 +1,362 @@
+.financeiro-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--main-white);
+}
+
+.tab-navigation {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 20px;
+  background: var(--main-white);
+}
+
+.tab-button {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 16px 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+
+  &--active {
+    font-weight: 700;
+    color: var(--main-gray);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--main-gray);
+    }
+  }
+
+  &:hover {
+    color: var(--main-gray);
+  }
+}
+
+.tab-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+// Estilos da aba Extrato
+.extrato-header {
+  margin-bottom: 24px;
+  padding: 20px 18px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid var(--main-orange);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.extrato-filter-button {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--main-orange);
+  font-size: 22px;
+}
+
+.valor-total {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.valor-total-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 400;
+}
+
+.valor-total-amount {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--main-black);
+}
+
+.valor-recebido {
+  font-size: 14px;
+  color: #999;
+  font-weight: 400;
+}
+
+.date-filters {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.date-filter-button {
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 0;
+  width: 18%;
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &--active {
+    background: var(--main-orange);
+    border-color: var(--main-orange);
+    color: white;
+    font-weight: 500;
+  }
+
+  &:hover {
+    border-color: var(--main-orange);
+  }
+}
+
+.status-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.status-filter-button {
+  flex: 1;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &--active {
+    background: var(--main-gray);
+    border-color: var(--main-gray);
+    color: white;
+    font-weight: 500;
+  }
+
+  &:hover {
+    border-color: var(--main-gray);
+  }
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.transaction-left {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.transaction-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 40px;
+}
+
+.transaction-date .weekday {
+  font-size: 11px;
+  font-weight: 500;
+  color: #666;
+}
+
+.transaction-date .day-number {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.1;
+}
+
+.transaction-date .month {
+  font-size: 11px;
+  font-weight: 500;
+  color: #666;
+}
+
+.transaction-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.transaction-amount {
+  font-size: 16px;
+  font-weight: 600;
+
+  &.amount-recebido {
+    color: #4caf50; // Green
+  }
+
+  &.amount-a-receber {
+    color: #333;
+  }
+}
+
+.transaction-description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+
+.transaction-name {
+  font-size: 12px;
+  font-weight: 400;
+  color: #999;
+}
+
+.transaction-right {
+  display: flex;
+  align-items: center;
+}
+
+.transaction-status {
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: lowercase;
+
+  &.status-recebido {
+    color: #4caf50; // Green
+  }
+
+  &.status-a-receber {
+    color: #f44336; // Red
+  }
+}
+
+// Estilos da aba Tabela de Preços
+.precos-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.preco-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preco-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--main-gray);
+}
+
+.preco-input {
+  --background: var(--main-white);
+  --border-color: #ddd;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 6px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  font-size: 16px;
+  color: var(--main-black);
+
+  &::placeholder {
+    color: #999;
+  }
+}
+
+// Estilos da aba Dados Bancários
+.dados-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--main-gray);
+}
+
+.form-select,
+.form-input {
+  --background: var(--main-white);
+  --border-color: #ddd;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 6px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  font-size: 16px;
+  color: var(--main-black);
+
+  &::placeholder {
+    color: #999;
+  }
+}
+
+.save-button-container {
+  padding: 0;
+  margin-top: auto;
+}
+
+.save-button {
+  --background: var(--main-gray);
+  --background-activated: #2a2a2a;
+  --background-focused: #2a2a2a;
+  --color: white;
+  --border-radius: 6px;
+  margin: 0;
+  height: 48px;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: none;
+}

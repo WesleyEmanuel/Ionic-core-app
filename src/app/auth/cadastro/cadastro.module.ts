@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { CadastroPageRoutingModule } from './cadastro-routing.module';
+import { SharedModule } from '../../shared/shared.module';
 
 import { CadastroPage } from './cadastro.page';
 
@@ -13,7 +14,8 @@ import { CadastroPage } from './cadastro.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CadastroPageRoutingModule
+    CadastroPageRoutingModule,
+    SharedModule
   ],
   declarations: [CadastroPage]
 })

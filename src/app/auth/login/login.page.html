@@ -1,7 +1,87 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="login-content">
+
+    <!-- Título -->
+    <div class="login-header">
+      <span>Look Diário TF</span>
+    </div>
+
+    <!-- Seleção Cliente / Estilista -->
+    <div class="segment-wrapper">
+      <button
+        class="segment-button"
+        [ngClass]="{ 'segment-button--active': selectedProfile === 'client' }"
+        type="button"
+        (click)="onSelectProfile('client')"
+      >
+        <div class="segment-button__icon">
+          <img
+            [src]="selectedProfile === 'client'
+              ? 'assets/svg/client-login-icon-active.svg'
+              : 'assets/svg/client-login-icon.svg'"
+            alt="Cliente"
+          />
+        </div>
+        <span>Cliente</span>
+      </button>
+
+      <button
+        class="segment-button"
+        [ngClass]="{ 'segment-button--active': selectedProfile === 'stylist' }"
+        type="button"
+        (click)="onSelectProfile('stylist')"
+      >
+        <div class="segment-button__icon">
+          <img
+            [src]="selectedProfile === 'stylist'
+              ? 'assets/svg/stylist-login-icon-active.svg'
+              : 'assets/svg/stylist-login-icon.svg'"
+            alt="Estilista"
+          />
+        </div>
+        <span>Estilista</span>
+      </button>
+    </div>
+
+    <!-- Formulário -->
+    <div class="form">
+      <app-custom-input
+        [(ngModel)]="email"
+        label="Email"
+        placeholder="email@email.com"
+        type="email"
+      ></app-custom-input>
+
+      <div>
+        <app-custom-input
+          [(ngModel)]="password"
+          label="Senha"
+          placeholder="••••••••"
+          [type]="showPassword ? 'text' : 'password'"
+          [showIcon]="true"
+          [iconName]="showPassword ? 'eye-outline' : 'eye-off-outline'"
+          (iconClick)="togglePasswordVisibility()"
+        ></app-custom-input>
+        <div class="forgot-password">
+          <a routerLink="/auth/redefinicao-senha">Esqueci minha senha</a>
+        </div>
+      </div>
+
+      <div class="login-button">
+        <ion-button 
+          expand="block" 
+          shape="round"
+          (click)="onSubmit()"
+          [disabled]="isLoading || !email || !password"
+        >
+          {{ isLoading ? 'Entrando...' : 'Entrar' }}
+        </ion-button>
+      </div>
+
+      <div class="login-footer">
+        Ainda não possui um cadastro?
+        <span routerLink="/auth/cadastro">Cadastre-se</span>
+      </div>
+    </div>
+  </div>
 </ion-content>

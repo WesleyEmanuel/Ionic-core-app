@@ -1,0 +1,25 @@
+.fale-conosco-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.fale-conosco-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.fale-conosco-body {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fale-conosco-footer {
+  padding: 16px 20px 32px;
+  position: sticky;
+  bottom: 0;
+  background: var(--main-white);
+}

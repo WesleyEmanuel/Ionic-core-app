@@ -1,0 +1,74 @@
+<ion-content [fullscreen]="true">
+  <div class="preferencias-content">
+    <app-header
+      title="Preferências de Estilo"
+      (backClick)="goBack()"
+    ></app-header>
+
+    <form [formGroup]="preferenciasForm" (ngSubmit)="onSubmit()">
+      <div class="preferencias-body">
+        <!-- Estilos Preferidos -->
+        <div class="section">
+          <h3 class="section-title">Estilos Preferidos</h3>
+          <div class="estilos-grid">
+            <button
+              type="button"
+              *ngFor="let estilo of estilosDisponiveis"
+              class="estilo-tag"
+              [class.selected]="isEstiloSelecionado(estilo)"
+              (click)="toggleEstilo(estilo)"
+            >
+              <span>{{ estilo }}</span>
+              <ion-icon
+                *ngIf="isEstiloSelecionado(estilo)"
+                name="close"
+                class="close-icon"
+              ></ion-icon>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cores Preferidas -->
+        <div class="section">
+          <h3 class="section-title">Cores Preferidas</h3>
+          <div class="cores-grid">
+            <button
+              type="button"
+              *ngFor="let cor of coresDisponiveis"
+              class="cor-swatch"
+              [class.selected]="isCorSelecionada(cor)"
+              [style.background-color]="cor"
+              [style.border-color]="cor === '#000000' ? '#fff' : (cor === '#FFFFFF' ? '#ddd' : cor)"
+              (click)="toggleCor(cor)"
+            ></button>
+            <button
+              type="button"
+              class="cor-swatch add-cor"
+              (click)="adicionarCor()"
+            >
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </div>
+        </div>
+
+        <!-- Referências de Estilo -->
+        <div class="section">
+          <h3 class="section-title">Referências de Estilo*</h3>
+          <ion-textarea
+            formControlName="referencias"
+            placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."
+            rows="6"
+            class="referencias-textarea"
+          ></ion-textarea>
+        </div>
+      </div>
+
+      <!-- Botão Salvar -->
+      <div class="preferencias-footer">
+        <ion-button expand="block" type="submit" shape="round">
+          Salvar
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

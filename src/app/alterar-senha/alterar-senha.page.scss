@@ -1,0 +1,110 @@
+:host {
+  --ion-background-color: #fffaFA;
+}
+
+.alterar-senha-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.alterar-senha-body {
+  padding: 0 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  margin-top: 8px;
+}
+
+.form-field {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.form-field app-input-error {
+  display: block;
+  margin-top: 4px;
+  margin-left: 12px;
+}
+
+.form-label {
+  font-size: 13px;
+  color: #4a4a4a;
+  margin-bottom: 4px;
+  position: absolute;
+  background-color: var(--ion-background-color);
+  transform: translate(12px, -8px);
+  padding: 0 10px;
+  z-index: 1;
+}
+
+.form-control {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid #d2c8c8;
+  padding: 0 16px;
+  background: #FFFAFA;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  position: relative;
+}
+
+.form-control ion-input {
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+.form-control__icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  color: #4a4a4a;
+  font-size: 20px;
+}
+
+.password-info {
+  font-size: 12px;
+  color: #7a6c6c;
+  margin-top: 12px;
+  padding-left: 12px;
+}
+
+.password-info p {
+  margin: 0 0 4px 0;
+}
+
+.password-info ul {
+  padding-left: 18px;
+  margin: 4px 0 0 0;
+}
+
+.password-info li {
+  margin-bottom: 2px;
+}
+
+.alterar-senha-footer {
+  margin-top: auto;
+  padding: 24px 0 32px;
+}
+
+.alterar-senha-footer ion-button {
+  --background: #262626;
+  --color: #ffffff;
+  --border-radius: 999px;
+  height: 48px;
+  font-weight: 500;
+}
+
+.alterar-senha-footer ion-button[disabled] {
+  --background: #d2c8c8;
+  --color: #ffffff;
+  opacity: 0.6;
+}

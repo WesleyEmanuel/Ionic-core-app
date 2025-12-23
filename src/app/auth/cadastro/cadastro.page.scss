@@ -1,0 +1,152 @@
+:host {
+  --ion-background-color: #fffaFA;
+}
+
+.signup-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.signup-body {
+  padding: 0 24px;
+}
+
+.signup-description {
+  font-size: 14px;
+  color: #4a4a4a;
+  margin-bottom: 24px;
+}
+
+.profile-options {
+  display: flex;
+  gap: 16px;
+}
+
+.profile-card {
+  flex: 1;
+  border-radius: 8px;
+  border: 1px solid #e4dede;
+  background: #ffffff;
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #262626;
+}
+
+.profile-card img {
+  width: 40px;
+  height: 40px;
+}
+
+.profile-card--active {
+  background: #262626;
+  color: #fffaFA;
+}
+
+.profile-card--active img {
+  filter: none;
+}
+
+.signup-footer {
+  margin-top: auto;
+  padding: 0 24px 32px;
+}
+
+.form {
+  margin-top: 8px;
+}
+
+.form-field {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.form-label {
+  font-size: 13px;
+  color: #4a4a4a;
+  margin-bottom: 4px;
+  position: absolute;
+  background-color: var(--ion-background-color);
+  transform: translate(12px, -8px);
+  padding: 0 10px;
+}
+
+.form-control {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid #d2c8c8;
+  padding: 0 16px;
+  background: #FFFAFA;
+  display: flex;
+  align-items: center;
+  height: 44px;
+}
+
+.form-control ion-input {
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+.terms-info {
+  font-size: 12px;
+  color: #7a6c6c;
+  margin-top: 12px;
+}
+
+.terms-info ul {
+  padding-left: 18px;
+  margin-top: 4px;
+}
+
+.terms-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #4a4a4a;
+}
+
+.terms-checkbox ion-checkbox {
+  margin-top: 2px;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #e09352;
+  text-decoration: underline;
+  font-size: inherit;
+}
+
+.terms-body {
+  // padding: 24px 24px 0;
+}
+
+.terms-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #4a4a4a;
+}
+
+.terms-scroll {
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  font-size: 12px;
+  color: #4a4a4a;
+}
+
+.secondary-button {
+  margin-top: 8px;
+}
+
+

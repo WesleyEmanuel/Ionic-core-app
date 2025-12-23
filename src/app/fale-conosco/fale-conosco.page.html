@@ -1,0 +1,50 @@
+<ion-content [fullscreen]="true">
+  <div class="fale-conosco-content">
+    <app-header title="Fale Conosco" (backClick)="goBack()"></app-header>
+
+    <form class="fale-conosco-form" [formGroup]="faleConoscoForm" (ngSubmit)="onSubmit()">
+      <div class="fale-conosco-body">
+        <!-- Nome -->
+        <app-custom-input
+          formControlName="nome"
+          label="Nome"
+          placeholder="Mariana Lima"
+          type="text"
+        ></app-custom-input>
+
+        <!-- Email -->
+        <app-custom-input
+          formControlName="email"
+          label="Email"
+          placeholder="email@email.com"
+          type="email"
+        ></app-custom-input>
+
+        <!-- Título -->
+        <app-custom-input
+          formControlName="titulo"
+          label="Titulo"
+          placeholder="Titulo"
+          type="text"
+        ></app-custom-input>
+
+        <!-- Mensagem -->
+        <app-custom-input
+          formControlName="mensagem"
+          label="Mensagem*"
+          placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+          [isTextarea]="true"
+          [rows]="6"
+          [required]="true"
+        ></app-custom-input>
+      </div>
+
+      <!-- Botão Enviar -->
+      <div class="fale-conosco-footer">
+        <ion-button expand="block" type="submit" shape="round" [disabled]="faleConoscoForm.invalid">
+          Enviar
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

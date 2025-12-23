@@ -1,0 +1,26 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <button
+        class="back-button"
+        (click)="onBackClick()"
+        type="button"
+      >
+        <img src="assets/svg/arrow-back.svg" alt="Voltar" class="back-icon" />
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{ title }}</ion-title>
+
+    <ion-buttons slot="end" *ngIf="showFilter">
+      <button
+        class="filter-button"
+        type="button"
+        (click)="onFilterClick()"
+      >
+        <ion-icon name="options-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+

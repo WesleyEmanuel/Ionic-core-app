@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true">
+  <div class="minhas-compras-content">
+    <app-header title="Minhas compras" (backClick)="goBack()"></app-header>
+
+    <div class="compras-list">
+      <div
+        *ngFor="let compra of compras"
+        class="compra-card"
+        (click)="verDetalhes(compra)"
+      >
+        <div class="compra-top-section">
+          <div class="compra-id-column">
+            <span class="compra-id">#{{ compra.id }}</span>
+          </div>
+          <!-- <div class="compra-divider-vertical"></div> -->
+          <div class="compra-descricao-column">
+            <span class="compra-descricao">{{ compra.descricao }}</span>
+          </div>
+          <div class="compra-right">
+            <span class="compra-data">{{ compra.data }}</span>
+            <span class="compra-preco">{{ formatarPreco(compra.preco) }}</span>
+          </div>
+        </div>
+        <div class="compra-divider-horizontal"></div>
+        <div class="compra-footer">
+          <a class="ver-detalhes-link" (click)="verDetalhes(compra); $event.stopPropagation()"
+            >Ver Detalhes</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

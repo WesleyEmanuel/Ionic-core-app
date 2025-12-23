@@ -1,0 +1,70 @@
+.app-header {
+  --background: transparent;
+  --ion-toolbar-background: transparent;
+  --color: var(--main-gray);
+  padding: 10px;
+
+  ion-toolbar {
+    --border-width: 0;
+  }
+
+  .back-button {
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3C3C3C;
+    margin: 0;
+    outline: none;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+
+    .back-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+  }
+
+  .filter-button {
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3c3c3c;
+    margin: 0;
+    outline: none;
+    font-size: 22px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  ion-title {
+    color: var(--main-gray);
+    padding-left: 50px;
+    text-align: start;
+  }
+}
+
+.header-md{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

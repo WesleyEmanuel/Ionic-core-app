@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true">
+  <div class="ver-resposta-content">
+    <app-header title="Fale Conosco" (backClick)="goBack()"></app-header>
+
+    <div class="resposta-body">
+      <h2 class="page-title">Fale Conosco</h2>
+
+      <div class="mensagem-detail-card" *ngIf="mensagem">
+        <div class="mensagem-header">
+          <span class="mensagem-titulo">{{ mensagem.titulo }}</span>
+          <div class="mensagem-meta">
+            <span class="mensagem-data">{{ mensagem.data }}</span>
+            <span
+              class="status-dot"
+              [style.background-color]="getStatusColor(mensagem.status)"
+            ></span>
+          </div>
+        </div>
+        <p class="mensagem-conteudo">{{ mensagem.conteudo }}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

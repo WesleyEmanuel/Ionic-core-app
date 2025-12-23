@@ -1,0 +1,139 @@
+.preferencias-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.preferencias-body {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--main-gray);
+  margin: 0;
+}
+
+.estilos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.estilo-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  background: #e8e8e8;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  span {
+    font-weight: 400;
+  }
+
+  &.selected {
+    background: var(--main-gray);
+    color: #fff;
+
+    .close-icon {
+      font-size: 16px;
+      margin-left: 4px;
+    }
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.cores-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  max-width: 100%;
+
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+}
+
+.cor-swatch {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  position: relative;
+  background: var(--main-white);
+
+  &.selected {
+    &::after {
+      content: '✓';
+      position: absolute;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &.add-cor {
+    background: #f0f0f0;
+    border-color: #ddd;
+    color: #666;
+
+    ion-icon {
+      font-size: 24px;
+    }
+
+    &:hover {
+      background: #e0e0e0;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.referencias-textarea {
+  --background: var(--main-white);
+  --color: var(--main-black);
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.preferencias-footer {
+  padding: 16px 20px 32px;
+  position: sticky;
+  bottom: 0;
+  background: var(--main-white);
+}

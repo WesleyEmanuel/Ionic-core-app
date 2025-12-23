@@ -1,44 +1,48 @@
-.ion-tabs {
-    .ion-tab-bar {
-      contain: none;
-      background-color: #000;
-      padding-top: 5px;
-      padding-bottom: 10px;
-      border-radius: 10px 10px 0 0;
+.tabs-with-fab {
+  .custom-tab-bar {
+    contain: none;
+    background: #ffffff;
+    padding: 6px 12px 12px;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 
-        .ion-tab {
-            background-color: transparent;
-            color: #fff;
-    
-            .icon {
-                height: 100%;
-                padding: 0 15%;
-                font-size: 28px;
-            }
+    ion-tab-button {
+      --background: transparent;
+      --color: #444444;
+      --color-selected: #8c4a1f;
+      flex-direction: column;
+      gap: 4px;
 
-            .tab-label{
-                font-size: 12px;
-                margin: 0;
-                font-weight: 500;
-            }
-        }
+      .icon {
+        font-size: 22px;
+      }
+
+      .tab-label {
+        font-size: 11px;
+        margin: 0;
+        font-weight: 500;
+      }
     }
+  }
 }
 
-.active {
-    display: none;
-}
+.center-fab {
+  bottom: 24px;
 
-.inactive {
-    display: unset;
-}
+  ion-fab-button {
+    --background: #8c4a1f;
+    --background-activated: #7a3f1a;
+    --background-focused: #7a3f1a;
+    --color: #ffffff;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    border: 6px solid #ffffff;
 
-.tab-selected {
-    .active {
-      display: unset;
+    ion-icon {
+      font-size: 30px;
     }
-    .inactive {
-      display: none;
-    }
+  }
 }
-  

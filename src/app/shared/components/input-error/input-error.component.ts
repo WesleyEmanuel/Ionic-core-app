@@ -23,6 +23,7 @@ export class InputErrorComponent {
       mismatch: 'As senhas não conferem',
       mismatchField: 'Os campos não conferem',
       min: 'Campo deve ser maior ou igual a [min]',
+      invalidPassword: 'Senha deve conter pelo menos 1 letra e 1 número',
     };
     let message = errorMessages[key] ?? 'Campo inválido';
     if (typeof value === 'object') {

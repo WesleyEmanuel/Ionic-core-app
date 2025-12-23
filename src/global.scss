@@ -35,3 +35,26 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+:root {
+    --main-black: #262626;
+    --main-white: #FFFAFA;
+    --main-gray: #3F3F3F;
+    --main-orange: #944000;
+}
+
+ion-button {
+    --background: var(--main-black);
+    text-transform: none;
+    height: 44px;
+    --color: #fff;
+}
+
+ion-input{
+    --background: var(--main-white);
+    color: var(--main-black)!important;
+}
+
+ion-content{
+    --background: var(--main-white);
+}

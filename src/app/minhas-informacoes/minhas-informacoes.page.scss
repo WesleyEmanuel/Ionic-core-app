@@ -1,0 +1,143 @@
+:host {
+  --ion-background-color: #fffaFA;
+}
+
+.minhas-informacoes-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.minhas-informacoes-body {
+  padding: 0 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0 32px;
+}
+
+.profile-image-wrapper {
+  width: 83px;
+  height: 83px;
+  border-radius: 50%;
+  border: 3px solid #8c4a1f;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edit-photo-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #8c4a1f;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.form-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.form-field {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.form-field app-input-error {
+  display: block;
+  margin-top: 4px;
+  margin-left: 12px;
+}
+
+.form-label {
+  font-size: 13px;
+  color: #4a4a4a;
+  margin-bottom: 4px;
+  position: absolute;
+  background-color: var(--ion-background-color);
+  transform: translate(12px, -8px);
+  padding: 0 10px;
+  z-index: 1;
+}
+
+.form-control {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid #d2c8c8;
+  padding: 0 16px;
+  background: #FFFAFA;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  position: relative;
+}
+
+.form-control ion-input {
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+.form-control ion-select {
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 100%;
+  font-size: 14px;
+  --placeholder-opacity: 0.5;
+  --placeholder-color: #999;
+  max-width: 100%;
+}
+
+.form-control ion-select::part(icon) {
+  color: #4a4a4a;
+  opacity: 0.5;
+}
+
+.minhas-informacoes-footer {
+  margin-top: auto;
+  padding: 24px 0 32px;
+  background: var(--ion-background-color);
+}
+
+.minhas-informacoes-footer ion-button {
+  --background: #262626;
+  --color: #ffffff;
+  --border-radius: 999px;
+  height: 48px;
+  font-weight: 500;
+}
+
+.minhas-informacoes-footer ion-button[disabled] {
+  --background: #d2c8c8;
+  --color: #ffffff;
+  opacity: 0.6;
+}

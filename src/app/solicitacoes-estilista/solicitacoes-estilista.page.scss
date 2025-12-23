@@ -1,0 +1,128 @@
+.solicitacoes-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--main-white, #fffafa);
+}
+
+.tab-navigation {
+  display: flex;
+  gap: 40px;
+  padding: 16px 31px;
+  border-bottom: 1px solid #e0e0e0;
+  background: var(--main-white, #fffafa);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tab-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--grafite, #3c3c3c);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+  font-family: 'Open Sans', sans-serif;
+
+  &--active {
+    font-weight: 700;
+    color: var(--grafite, #3c3c3c);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--principal, #262626);
+    }
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.solicitacoes-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.solicitacao-card {
+  background: var(--cards, #f2f2f2);
+  border: 1px solid var(--linhas, #d9d9d9);
+  border-radius: 10px;
+  padding: 16px 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.solicitacao-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.solicitacao-data {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--cinza-texto, #757575);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.solicitacao-tipo {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--grafite, #3c3c3c);
+  margin: 0 0 8px 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.solicitacao-info {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--cinza-texto, #757575);
+  margin: 0 0 4px 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.solicitacao-status {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--cinza-texto, #757575);
+  margin: 0 0 8px 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ver-detalhes-link {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--vermelho, #944000);
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  width: 100%;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+

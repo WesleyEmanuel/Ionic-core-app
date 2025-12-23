@@ -1,0 +1,195 @@
+<ion-content [fullscreen]="true">
+  <div class="financeiro-content">
+    <app-header
+      title="Extrato"
+      backRoute="home/menu"
+    ></app-header>
+
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+      <button
+        class="tab-button"
+        [ngClass]="{ 'tab-button--active': selectedTab === 'extrato' }"
+        (click)="selectTab('extrato')"
+      >
+        Extrato
+      </button>
+      <button
+        class="tab-button"
+        [ngClass]="{ 'tab-button--active': selectedTab === 'tabela' }"
+        (click)="selectTab('tabela')"
+      >
+        Tabela de Preços
+      </button>
+      <button
+        class="tab-button"
+        [ngClass]="{ 'tab-button--active': selectedTab === 'dados' }"
+        (click)="selectTab('dados')"
+      >
+        Dados Bancários
+      </button>
+    </div>
+
+    <!-- Tab Content: Extrato -->
+    <div class="tab-content" *ngIf="selectedTab === 'extrato'">
+      <div class="extrato-header">
+        <button
+          class="extrato-filter-button"
+          type="button"
+          (click)="onFilterClick()"
+        >
+          <ion-icon name="filter-outline"></ion-icon>
+        </button>
+        <div class="valor-total">
+          <span class="valor-total-label">Valor total a receber</span>
+          <span class="valor-total-amount">R${{ formatarValorTotal(valorTotalAReceber) }}</span>
+        </div>
+        <div class="valor-recebido">
+          <span>Total já recebido: {{ formatarMoeda(valorTotalRecebido) }}</span>
+        </div>
+      </div>
+
+      <!-- Date Filters -->
+      <div class="date-filters">
+        <button
+          class="date-filter-button"
+          *ngFor="let period of datePeriods"
+          [ngClass]="{ 'date-filter-button--active': selectedDatePeriod === period }"
+          (click)="selectDatePeriod(period)"
+        >
+          {{ period }}
+        </button>
+      </div>
+
+      <!-- Status Filters -->
+      <div class="status-filters">
+        <button
+          class="status-filter-button"
+          [ngClass]="{ 'status-filter-button--active': selectedStatus === 'recebidos' }"
+          (click)="selectStatus('recebidos')"
+        >
+          Recebidos
+        </button>
+        <button
+          class="status-filter-button"
+          [ngClass]="{ 'status-filter-button--active': selectedStatus === 'a-receber' }"
+          (click)="selectStatus('a-receber')"
+        >
+          A Receber
+        </button>
+      </div>
+
+      <!-- Transactions List -->
+      <div class="transactions-list">
+        <div
+          class="transaction-item"
+          *ngFor="let transaction of filteredTransactions"
+        >
+          <div class="transaction-left">
+            <div class="transaction-date">
+              <span class="weekday">{{ transaction.diaSemana }}</span>
+              <span class="day-number">{{ transaction.diaNumero }}</span>
+              <span class="month">{{ transaction.mes }}</span>
+            </div>
+            <div class="transaction-details">
+              <div class="transaction-amount" [ngClass]="transaction.status === 'recebido' ? 'amount-recebido' : 'amount-a-receber'">
+                + {{ formatarMoeda(transaction.valor) }}
+              </div>
+              <div class="transaction-description">{{ transaction.descricao }}</div>
+              <div class="transaction-name">{{ transaction.nome }}</div>
+            </div>
+          </div>
+          <div class="transaction-right">
+            <span
+              class="transaction-status"
+              [ngClass]="transaction.status === 'recebido' ? 'status-recebido' : 'status-a-receber'"
+            >
+              {{ transaction.status === 'recebido' ? 'recebido' : 'a receber' }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Content: Tabela de Preços -->
+    <div class="tab-content" *ngIf="selectedTab === 'tabela'">
+      <div class="precos-form">
+        <div class="preco-field" *ngFor="let servico of servicos">
+          <app-custom-input
+            [label]="servico.nome"
+            placeholder="R$ 00,00"
+            type="text"
+            [mask]="{ type: 'currency' }"
+            [(ngModel)]="servico.preco"
+          ></app-custom-input>
+        </div>
+      </div>
+      <div class="save-button-container">
+        <ion-button expand="block" class="save-button" (click)="salvarPrecos()">
+          Salvar
+        </ion-button>
+      </div>
+    </div>
+
+    <!-- Tab Content: Dados Bancários -->
+    <div class="tab-content" *ngIf="selectedTab === 'dados'">
+      <div class="dados-form">
+        <app-custom-select
+          label="Tipo de Conta"
+          placeholder="Selecione"
+          [(ngModel)]="dadosBancarios.tipoConta"
+        >
+          <ion-select-option value="corrente">Conta Corrente</ion-select-option>
+          <ion-select-option value="poupanca">Conta Poupança</ion-select-option>
+        </app-custom-select>
+
+        <app-custom-select
+          label="Banco"
+          placeholder="Selecione"
+          [(ngModel)]="dadosBancarios.banco"
+        >
+          <ion-select-option value="001">Banco do Brasil</ion-select-option>
+          <ion-select-option value="237">Bradesco</ion-select-option>
+          <ion-select-option value="341">Itaú</ion-select-option>
+          <ion-select-option value="104">Caixa Econômica Federal</ion-select-option>
+          <ion-select-option value="033">Santander</ion-select-option>
+        </app-custom-select>
+
+        <div class="form-field">
+          <app-custom-input
+            label="Agência"
+            placeholder="0000"
+            type="text"
+            [mask]="{ type: 'numeric' }"
+            [(ngModel)]="dadosBancarios.agencia"
+          ></app-custom-input>
+        </div>
+
+        <div class="form-field">
+          <app-custom-input
+            label="Conta"
+            placeholder="00000"
+            type="text"
+            [mask]="{ type: 'numeric' }"
+            [(ngModel)]="dadosBancarios.conta"
+          ></app-custom-input>
+        </div>
+
+        <div class="form-field">
+          <app-custom-input
+            label="Dígito"
+            placeholder="00"
+            type="text"
+            [mask]="{ type: 'numeric' }"
+            [(ngModel)]="dadosBancarios.digito"
+          ></app-custom-input>
+        </div>
+      </div>
+      <div class="save-button-container">
+        <ion-button expand="block" class="save-button" (click)="salvarDadosBancarios()">
+          Salvar
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

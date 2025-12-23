@@ -1,0 +1,130 @@
+ :host {
+  --ion-background-color: #FFFAFA;
+}
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 24px 24px 32px;
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+.login-header {
+  text-align: center;
+  font-size: 26px;
+  letter-spacing: 0.4em;
+  text-transform: none;
+  color: #1e1e1e;
+  margin-bottom: 100px;
+  font-family: 'Old Standard TT', serif;
+  font-weight: 700;
+}
+
+.login-header span {
+  letter-spacing: 0.35em;
+}
+
+.segment-wrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 50px;
+}
+
+.segment-button {
+  flex: 1;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid #f0e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #7a6c6c;
+  background: #fff;
+}
+
+.segment-button.segment-button--active {
+  background: var(--main-black);
+  color: #fff;
+  border-color: var(--main-black);
+}
+
+.segment-button__icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 14px;
+  color: #4a4a4a;
+  margin-bottom: 4px;
+  position: absolute;
+  background-color: var(--ion-background-color);
+  transform: translate(12px, -8px);
+  padding: 0 10px;
+}
+
+.form-control {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid #d2c8c8;
+  padding: 0 16px;
+  background: #FFFAFA;
+  display: flex;
+  align-items: center;
+  height: 44px;
+}
+
+.form-control ion-input {
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+.form-control__icon {
+  margin-left: 8px;
+  font-size: 18px;
+  color: #b3a6a6;
+}
+
+.forgot-password {
+  font-size: 11px;
+  color: #e09352;
+  margin-top: 4px;
+}
+
+.forgot-password a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.login-button {
+  margin-top: 100px;
+}
+
+.login-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #7a6c6c;
+  margin-top: 16px;
+}
+
+.login-footer span {
+  color: #e09352;
+}
+
+

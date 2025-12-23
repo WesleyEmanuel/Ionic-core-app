@@ -1,0 +1,89 @@
+<ion-content [fullscreen]="true" class="chat-content">
+  <!-- Header -->
+  <div class="chat-header">
+    <div class="chat-header-left">
+      <button class="back-button" (click)="voltar()" type="button">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </button>
+      
+      <div class="user-info">
+        <div class="avatar-container">
+          <img
+            class="avatar-image"
+            src="assets/icon/favicon.png"
+            [alt]="nomeContato"
+          />
+        </div>
+        <div class="user-details">
+          <h2 class="user-name">{{ nomeContato }}</h2>
+          <div class="status-container">
+            <span class="status-indicator"></span>
+            <span class="status-text">{{ statusContato }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="menu-button" (click)="abrirMenu()" type="button">
+      <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+    </button>
+  </div>
+
+  <!-- Messages Area -->
+  <div class="messages-container">
+    <div class="messages-list">
+      <div
+        class="message-wrapper"
+        *ngFor="let mensagem of mensagens; let first = first"
+      >
+        <!-- Date Label -->
+        <div class="date-label" *ngIf="mensagem.dataLabel && first">
+          {{ mensagem.dataLabel }}
+        </div>
+
+        <!-- Message -->
+        <div
+          class="message"
+          [ngClass]="{
+            'message--outro': mensagem.remetente === 'outro',
+            'message--eu': mensagem.remetente === 'eu',
+            'message--imagem': mensagem.imagem
+          }"
+        >
+          <div class="message-content" *ngIf="mensagem.texto">
+            <p>{{ mensagem.texto }}</p>
+          </div>
+          
+          <div class="message-image" *ngIf="mensagem.imagem">
+            <img [src]="mensagem.imagem" alt="Imagem" />
+            <div class="play-overlay" *ngIf="mensagem.video">
+              <ion-icon name="play"></ion-icon>
+            </div>
+          </div>
+
+          <span class="message-time">{{ mensagem.timestamp }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input Area -->
+  <div class="input-container">
+    <div class="input-content">
+      <button class="add-button" type="button">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <input
+        type="text"
+        class="message-input"
+        placeholder="Digite Algo..."
+        [(ngModel)]="novaMensagem"
+        (keyup.enter)="enviarMensagem()"
+      />
+      <button class="send-button" (click)="enviarMensagem()" type="button">
+        <ion-icon name="send-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+</ion-content>
+

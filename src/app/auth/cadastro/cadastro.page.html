@@ -1,7 +1,360 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cadastro</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="signup-content">
+    <app-header
+      [title]="getHeaderTitle()"
+      (backClick)="goBack()"
+    ></app-header>
+
+    <div class="signup-body" *ngIf="currentStep === 0">
+      <p class="signup-description">
+        Primeiro precisamos saber com qual tipo de cadastro você deseja continuar
+      </p>
+
+      <div class="profile-options">
+        <button
+          class="profile-card"
+          [ngClass]="{ 'profile-card--active': isStylist }"
+          type="button"
+          (click)="onSelectProfile('stylist')"
+        >
+          <img
+            [src]="isStylist
+              ? 'assets/svg/stylist-login-icon-active.svg'
+              : 'assets/svg/stylist-login-icon.svg'"
+            alt="Sou estilista"
+          />
+          <span>Sou estilista</span>
+        </button>
+
+        <button
+          class="profile-card"
+          [ngClass]="{ 'profile-card--active': isClient }"
+          type="button"
+          (click)="onSelectProfile('client')"
+        >
+          <img
+            [src]="isClient
+              ? 'assets/svg/client-login-icon-active.svg'
+              : 'assets/svg/client-login-icon.svg'"
+            alt="Sou cliente"
+          />
+          <span>Sou Cliente</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Etapa 1 - Dados básicos -->
+    <div class="signup-body" *ngIf="currentStep === 1">
+      <p class="signup-description">
+        Precisamos de alguns dados básicos para seu cadastro
+      </p>
+
+      <div class="form">
+        <app-custom-input
+          label="Nome"
+          placeholder="Nome completo"
+        ></app-custom-input>
+
+        <app-custom-input
+          label="Email"
+          placeholder="email@email.com"
+          type="email"
+        ></app-custom-input>
+
+        <app-custom-input
+          label="Celular"
+          placeholder="(00) 00000-0000"
+        ></app-custom-input>
+
+        <app-custom-input
+          label="CPF"
+          placeholder="000.000.000-00"
+        ></app-custom-input>
+
+        <app-custom-input
+          label="Data de Nascimento"
+          placeholder="dd/mm/aaaa"
+        ></app-custom-input>
+
+        <app-custom-input
+          *ngIf="isClient"
+          label="Código Estilista (Opcional)"
+          placeholder="Informe o código"
+        ></app-custom-input>
+      </div>
+    </div>
+
+    <!-- Etapa 2 - Medidas (cliente) ou Endereço (estilista) -->
+    <div class="signup-body" *ngIf="currentStep === 2">
+      <!-- Cliente: medidas -->
+      <ng-container *ngIf="isClient">
+        <p class="signup-description">
+          Suas medidas ajudam a criar sugestões que valorizam sua silhueta, mas essa etapa é opcional.
+        </p>
+
+        <div class="form">
+          <app-custom-input
+            label="Altura (Opcional)"
+            placeholder="cm"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Peso (Opcional)"
+            placeholder="kg"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Tipo de Corpo (Opcional)"
+            placeholder="Selecione"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Numeração Alfabetica Superior (Opcional)"
+            placeholder="Selecione"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Numeração Numérica Superior (Opcional)"
+            placeholder="Selecione"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Numeração Alfabetica Inferior (Opcional)"
+            placeholder="Selecione"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Numeração Numérica Inferior (Opcional)"
+            placeholder="Selecione"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Numeração Calçados (Opcional)"
+            placeholder="Selecione"
+          ></app-custom-input>
+        </div>
+      </ng-container>
+
+      <!-- Estilista: endereço (primeira tela após dados básicos) -->
+      <ng-container *ngIf="isStylist">
+        <p class="signup-description">
+          Precisamos do seu endereço para sabermos melhor sobre o clima e disponibilidade de serviços.
+        </p>
+
+        <div class="form">
+          <app-custom-input
+            label="CEP"
+            placeholder="00000-000"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Endereço"
+            placeholder="Rua, avenida..."
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Número"
+            placeholder="Número"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Bairro"
+            placeholder="Bairro"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Cidade"
+            placeholder="Cidade"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Estado"
+            placeholder="Estado"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Complemento"
+            placeholder="Opcional"
+          ></app-custom-input>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- Etapa 3 - Endereço (cliente) ou Infos profissionais (estilista) -->
+    <div class="signup-body" *ngIf="currentStep === 3">
+      <!-- Cliente: endereço -->
+      <ng-container *ngIf="isClient">
+        <p class="signup-description">
+          Precisamos do seu endereço para sabermos melhor sobre o clima e disponibilidade de serviços.
+        </p>
+
+        <div class="form">
+          <app-custom-input
+            label="CEP"
+            placeholder="00000-000"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Endereço"
+            placeholder="Rua, avenida..."
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Número"
+            placeholder="Número"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Bairro"
+            placeholder="Bairro"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Cidade"
+            placeholder="Cidade"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Estado"
+            placeholder="Estado"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Complemento"
+            placeholder="Opcional"
+          ></app-custom-input>
+        </div>
+      </ng-container>
+
+      <!-- Estilista: informações sobre o trabalho -->
+      <ng-container *ngIf="isStylist">
+        <p class="signup-description">
+          Agora algumas informações sobre você e seus trabalhos na área.
+        </p>
+
+        <div class="form">
+          <app-custom-input
+            label="Especializações"
+            placeholder="Informe suas especializações"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Tempo de Experiência"
+            placeholder="Anos de experiência"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Formação"
+            placeholder="Cursos, faculdades..."
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Portfólio"
+            placeholder="Link do portfólio"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="Instagram"
+            placeholder="@seuusuario"
+          ></app-custom-input>
+
+          <app-custom-input
+            label="LinkedIn"
+            placeholder="Perfil do LinkedIn"
+          ></app-custom-input>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- Etapa 4 - Senha e termos -->
+    <div class="signup-body" *ngIf="currentStep === 4">
+      <p class="signup-description">
+        Crie sua senha
+      </p>
+
+      <div class="form">
+        <app-custom-input
+          label="Senha"
+          placeholder="Digite sua senha"
+          type="password"
+        ></app-custom-input>
+
+        <app-custom-input
+          label="Nova Senha"
+          placeholder="Confirme sua senha"
+          type="password"
+        ></app-custom-input>
+      </div>
+
+      <div class="terms-info">
+        <p>Sua senha deve conter:</p>
+        <ul>
+          <li>No mínimo 8 caracteres</li>
+          <li>Letras e números</li>
+        </ul>
+      </div>
+
+      <div class="terms-checkbox">
+        <ion-checkbox
+          [(ngModel)]="termsAccepted"
+          justify="start"
+        ></ion-checkbox>
+        <span>
+          Declaro que li e concordo com os
+          <button type="button" class="link-button" (click)="openTerms()">
+            Termos de Uso e Privacidade
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <!-- Etapa 5 - Tela de termos -->
+    <div class="signup-body terms-body" *ngIf="currentStep === 5">
+      <h2 class="terms-title">Termos e Política</h2>
+      <div class="terms-scroll">
+        <p *ngFor="let p of [1,2,3,4,5,6,7,8]">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+          cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </p>
+      </div>
+    </div>
+
+    <!-- Rodapé com botões -->
+    <div class="signup-footer" *ngIf="currentStep !== 5">
+      <ion-button
+        expand="block"
+        shape="round"
+        [disabled]="currentStep === 0 && !selectedProfile"
+        (click)="goNext()"
+      >
+        {{ currentStep === maxStep ? 'Concluir' : 'Continuar' }}
+      </ion-button>
+
+      <ion-button
+        *ngIf="isClient && currentStep === 2"
+        fill="outline"
+        expand="block"
+        shape="round"
+        class="secondary-button"
+        (click)="goNext()"
+      >
+        Pular
+      </ion-button>
+    </div>
+
+    <div class="signup-footer" *ngIf="currentStep === 5">
+      <ion-button
+        expand="block"
+        shape="round"
+        (click)="acceptTerms()"
+      >
+        Aceitar
+      </ion-button>
+    </div>
+  </div>
 </ion-content>

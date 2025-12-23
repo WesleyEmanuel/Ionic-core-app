@@ -1,0 +1,61 @@
+<ion-content [fullscreen]="true">
+  <div class="detalhes-content">
+    <app-header
+      title="Solicitações"
+      backRoute="/solicitacoes-estilista"
+    ></app-header>
+
+    <div class="detalhes-body" *ngIf="solicitacao">
+      <!-- Solicitação Card -->
+      <div class="solicitacao-detalhe-card">
+        <div class="solicitacao-header">
+          <span class="solicitacao-data">{{ solicitacao.data }}</span>
+        </div>
+        <h3 class="solicitacao-tipo">{{ solicitacao.tipoServico }}</h3>
+        <p class="solicitacao-info" *ngIf="solicitacao.cliente">
+          Cliente: {{ solicitacao.cliente }}
+        </p>
+        <p class="solicitacao-info" *ngIf="solicitacao.estilistaResponsavel">
+          Estilista Responsável: {{ solicitacao.estilistaResponsavel }}
+        </p>
+        <p class="solicitacao-status">
+          Status: {{ getStatusLabel(solicitacao.status) }}
+        </p>
+        <p class="solicitacao-info" *ngIf="solicitacao.orcamento">
+          Orçamento: {{ solicitacao.orcamento }}
+        </p>
+        <p class="solicitacao-info" *ngIf="solicitacao.pecasFaltam">
+          Peças que sente falta: {{ solicitacao.pecasFaltam }}
+        </p>
+        <p class="solicitacao-info" *ngIf="solicitacao.coresPreferidas">
+          Cores Preferidas: {{ solicitacao.coresPreferidas }}
+        </p>
+        <p class="solicitacao-info" *ngIf="solicitacao.estilosPreferidos">
+          Estilos Preferidos: {{ solicitacao.estilosPreferidos }}
+        </p>
+        
+        <div class="actions-container">
+          <ion-button
+            expand="block"
+            class="montar-composicao-button"
+            (click)="montarComposicao()"
+          >
+            Montar Composição
+          </ion-button>
+        </div>
+
+        <a class="ver-chat-link" (click)="verChat()">Ver Chat</a>
+      </div>
+
+      <!-- Encerrar Solicitação Button -->
+      <ion-button
+        expand="block"
+        class="encerrar-button"
+        (click)="encerrarSolicitacao()"
+      >
+        Encerrar Solicitação
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+

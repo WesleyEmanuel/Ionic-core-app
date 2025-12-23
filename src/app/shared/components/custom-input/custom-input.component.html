@@ -1,0 +1,26 @@
+<div class="form-field">
+  <div class="form-label" *ngIf="label">{{ label }}</div>
+  <div class="form-control" [class.textarea-control]="isTextarea">
+    <ion-input
+      *ngIf="!isTextarea"
+      [type]="type"
+      [placeholder]="placeholder"
+      [value]="value"
+      [disabled]="disabled"
+      (ionInput)="onInputChange($event)"
+      (ionBlur)="onBlur()"
+    ></ion-input>
+    <ion-textarea
+      *ngIf="isTextarea"
+      [placeholder]="placeholder"
+      [value]="value"
+      [rows]="rows"
+      [disabled]="disabled"
+      (ionInput)="onInputChange($event)"
+      (ionBlur)="onBlur()"
+    ></ion-textarea>
+    <div class="form-control__icon" *ngIf="showIcon && !isTextarea" (click)="onIconClick()">
+      <ion-icon [name]="iconName"></ion-icon>
+    </div>
+  </div>
+</div>

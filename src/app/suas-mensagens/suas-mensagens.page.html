@@ -1,0 +1,39 @@
+<ion-content [fullscreen]="true">
+  <div class="suas-mensagens-content">
+    <app-header title="Fale Conosco" (backClick)="goBack()"></app-header>
+
+    <div class="mensagens-body">
+      <div class="page-title-container">
+        <h2 class="page-title">Suas Mensagens</h2>
+        <button class="add-mensagem-button" (click)="novaMensagem()" type="button">
+          <ion-icon name="add-outline"></ion-icon>
+        </button>
+      </div>
+
+      <div class="mensagens-list">
+        <div
+          *ngFor="let mensagem of mensagens"
+          class="mensagem-card"
+        >
+          <div class="mensagem-header">
+            <span class="mensagem-titulo">{{ mensagem.titulo }}</span>
+            <div class="mensagem-meta">
+              <span class="mensagem-data">{{ mensagem.data }}</span>
+              <span
+                class="status-dot"
+                [style.background-color]="getStatusColor(mensagem.status)"
+              ></span>
+            </div>
+          </div>
+          <p class="mensagem-preview">{{ mensagem.preview }}</p>
+          <a
+            class="ver-resposta-link"
+            (click)="verResposta(mensagem)"
+          >
+            Ver Resposta >
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

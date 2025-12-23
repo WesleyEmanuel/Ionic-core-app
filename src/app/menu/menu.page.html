@@ -1,0 +1,90 @@
+<ion-content fullscreen="true" class="menu-page">
+  <div class="profile-container">
+    <div class="avatar-wrapper">
+      <img
+        class="avatar-image"
+        [src]="user?.imagem || 'assets/icon/favicon.png'"
+        [alt]="userName"
+      />
+    </div>
+    <h2 class="user-name">{{ userName }}</h2>
+  </div>
+
+  <div class="menu-list">
+    <ion-list lines="none">
+      <!-- Itens comuns para ambos os tipos -->
+      <ion-item button detail="false" (click)="onItemClick('info')" class="menu-item">
+        <ion-icon slot="start" name="person-outline" class="menu-icon"></ion-icon>
+        <ion-label>Minhas Informações</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+      </ion-item>
+
+      <ion-item button detail="false" (click)="onItemClick('password')" class="menu-item">
+        <ion-icon slot="start" name="lock-closed-outline" class="menu-icon"></ion-icon>
+        <ion-label>Alterar Senha</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+      </ion-item>
+
+      <!-- Itens específicos do Cliente -->
+      <ng-container *ngIf="!isStylist">
+        <ion-item button detail="false" (click)="onItemClick('orders')" class="menu-item">
+          <ion-icon slot="start" name="cash-outline" class="menu-icon"></ion-icon>
+          <ion-label>Minhas Compras</ion-label>
+          <ion-icon slot="end" name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+        </ion-item>
+
+        <ion-item button detail="false" (click)="onItemClick('requests')" class="menu-item">
+          <ion-icon slot="start" name="clipboard-outline" class="menu-icon"></ion-icon>
+          <ion-label>Solicitações</ion-label>
+          <ion-icon slot="end" name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+        </ion-item>
+
+        <ion-item button detail="false" (click)="onItemClick('style-preferences')" class="menu-item">
+          <ion-icon slot="start" name="shirt-outline" class="menu-icon"></ion-icon>
+          <ion-label>Preferências de Estilo</ion-label>
+          <ion-icon slot="end" name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+        </ion-item>
+      </ng-container>
+
+      <!-- Itens específicos do Estilista -->
+      <ng-container *ngIf="isStylist">
+        <ion-item button detail="false" (click)="onItemClick('financial')" class="menu-item">
+          <ion-icon slot="start" name="wallet-outline" class="menu-icon"></ion-icon>
+          <ion-label>Financeiro</ion-label>
+          <ion-icon slot="end" name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+        </ion-item>
+
+        <ion-item button detail="false" (click)="onItemClick('clients')" class="menu-item">
+          <ion-icon slot="start" name="people-outline" class="menu-icon"></ion-icon>
+          <ion-label>Clientes</ion-label>
+          <ion-icon slot="end" name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+        </ion-item>
+
+        <ion-item button detail="false" (click)="onItemClick('requests')" class="menu-item">
+          <ion-icon slot="start" name="clipboard-outline" class="menu-icon"></ion-icon>
+          <ion-label>Solicitações</ion-label>
+          <ion-icon slot="end" name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+        </ion-item>
+      </ng-container>
+
+      <!-- Itens comuns -->
+      <ion-item button detail="false" (click)="onItemClick('contact')" class="menu-item">
+        <ion-icon slot="start" name="chatbubble-ellipses-outline" class="menu-icon"></ion-icon>
+        <ion-label>Fale Conosco</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+      </ion-item>
+
+      <ion-item button detail="false" (click)="onItemClick('terms')" class="menu-item">
+        <ion-icon slot="start" name="document-text-outline" class="menu-icon"></ion-icon>
+        <ion-label>Termos de Uso</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+      </ion-item>
+
+      <ion-item button detail="false" (click)="onLogout()" class="menu-item logout-item">
+        <ion-icon slot="start" name="log-out-outline" class="menu-icon"></ion-icon>
+        <ion-label>Sair</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

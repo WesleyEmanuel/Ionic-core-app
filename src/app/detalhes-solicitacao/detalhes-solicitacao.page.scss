@@ -1,0 +1,123 @@
+.detalhes-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--main-white, #fffafa);
+}
+
+.detalhes-body {
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 85%;
+}
+
+.solicitacao-detalhe-card {
+  background: var(--cards, #f2f2f2);
+  border: 1px solid var(--linhas, #d9d9d9);
+  border-radius: 10px;
+  padding: 16px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.solicitacao-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.solicitacao-data {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--cinza-texto, #757575);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.solicitacao-tipo {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--grafite, #3c3c3c);
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.solicitacao-info {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--cinza-texto, #757575);
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.solicitacao-status {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--cinza-texto, #757575);
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.actions-container {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.montar-composicao-button {
+  --background: transparent;
+  --background-activated: transparent;
+  --background-focused: transparent;
+  --color: var(--principal, #262626);
+  --border-color: var(--principal, #262626);
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 100px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: none;
+  margin: 0;
+}
+
+.ver-chat-link {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--vermelho, #944000);
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  margin-top: 8px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.encerrar-button {
+  --background: #d9534f;
+  --background-activated: #c9302c;
+  --background-focused: #c9302c;
+  --color: white;
+  --border-radius: 100px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: none;
+  margin: 0;
+}
+

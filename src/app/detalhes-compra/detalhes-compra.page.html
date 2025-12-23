@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true">
+  <div class="detalhes-compra-content">
+    <app-header title="Detalhes Compra" (backClick)="goBack()"></app-header>
+
+    <div class="detalhes-body-container">
+      <div class="detalhes-body" *ngIf="detalhes">
+        <!-- Resumo da Compra -->
+        <div class="compra-summary">
+          <div class="compra-header">
+            <span class="compra-id">#{{ detalhes.id }}</span>
+            <span class="compra-data">{{ detalhes.data }}</span>
+          </div>
+          <div class="compra-body">
+            <span class="compra-descricao">{{ detalhes.descricao }}</span>
+            <span class="compra-preco">{{ formatarPreco(detalhes.preco) }}</span>
+          </div>
+        </div>
+  
+        <!-- Método de Pagamento -->
+        <div class="pagamento-section">
+          <p class="pagamento-label">Método de pagamento:</p>
+          <p class="pagamento-metodo">{{ detalhes.metodoPagamento }}</p>
+          <div class="cartao-info">
+            <div class="cartao-logo" [ngClass]="getLogoContainerClass()">
+              <span [ngClass]="getLogoClass()">{{ getLogoText() }}</span>
+            </div>
+            <span class="cartao-numero">{{ detalhes.bandeira }} {{ detalhes.numeroCartao }}</span>
+          </div>
+          <p class="parcelas">{{ detalhes.parcelas }}</p>
+        </div>
+  
+        <!-- Resumo de Valores -->
+        <div class="valores-section">
+          <div class="valor-item">
+            <span>Subtotal:</span>
+            <span>{{ formatarPreco(detalhes.subtotal) }}</span>
+          </div>
+          <div class="valor-item total">
+            <span>Total:</span>
+            <span>{{ formatarPreco(detalhes.total) }}</span>
+          </div>
+        </div>
+  
+        <!-- Link Ver Chat -->
+        <div class="chat-section">
+          <a class="ver-chat-link" (click)="verChat()">Ver Chat</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
